@@ -1,0 +1,54 @@
+:root {
+  --bg: #f6f7f9; --surface: #fff; --text: #1d2733; --muted: #667085; --border: #e2e6ec;
+  --primary: #2f5fd0; --ok: #1a7f4b; --ok-bg: #e3f4ea; --off: #a33a2c; --off-bg: #fbe9e6; --danger: #c0392b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14181f; --surface: #1d232d; --text: #e8ecf2; --muted: #98a2b3; --border: #2e3745;
+    --primary: #6f93f0; --ok: #6fd39b; --ok-bg: #173a29; --off: #f0a398; --off-bg: #432220; --danger: #ef7d70;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); line-height: 1.45; }
+.topbar { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; padding: .8rem 1.25rem; background: var(--surface); border-bottom: 1px solid var(--border); }
+.topbar .brand { font-weight: 700; color: var(--text); text-decoration: none; }
+.topbar nav { display: flex; gap: 1rem; flex: 1; }
+.topbar nav a { color: var(--primary); text-decoration: none; }
+.topbar nav a:hover { text-decoration: underline; }
+.connection { font-size: .8rem; padding: .15rem .6rem; border-radius: 999px; background: var(--border); color: var(--muted); }
+.connection.on { background: var(--ok-bg); color: var(--ok); }
+.connection.off { background: var(--off-bg); color: var(--off); }
+main { max-width: 1000px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+h1 { margin: 0 0 .25rem; font-size: 1.6rem; }
+h2 { margin: 0 0 .75rem; font-size: 1.1rem; }
+.muted { color: var(--muted); margin: 0 0 1.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.empty { color: var(--muted); grid-column: 1 / -1; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; display: flex; flex-direction: column; gap: .35rem; }
+.card header { display: flex; justify-content: space-between; align-items: flex-start; gap: .5rem; }
+.card h3 { margin: 0; font-size: 1.05rem; }
+.card p { margin: 0; }
+.category { color: var(--muted); font-size: .85rem; text-transform: capitalize; }
+.meta { font-weight: 600; margin-top: .25rem !important; }
+.badge { font-size: .75rem; padding: .15rem .55rem; border-radius: 999px; background: var(--border); white-space: nowrap; }
+.badge.ok { background: var(--ok-bg); color: var(--ok); }
+.badge.off { background: var(--off-bg); color: var(--off); }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: .35rem; padding: 0; margin: .25rem 0; }
+.chips li { font-size: .8rem; padding: .15rem .55rem; border-radius: 999px; background: var(--ok-bg); color: var(--ok); }
+.chips li.empty { background: transparent; color: var(--muted); padding-left: 0; }
+.chips li.missing { background: var(--off-bg); color: var(--off); text-decoration: line-through; }
+.actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
+button, select, input { font: inherit; }
+button { cursor: pointer; border: 1px solid var(--primary); background: var(--primary); color: #fff; padding: .4rem .8rem; border-radius: 8px; }
+.actions button { background: transparent; color: var(--primary); }
+.actions button.danger { border-color: var(--danger); color: var(--danger); }
+select, input:not([type=checkbox]) { width: 100%; padding: .4rem .55rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); }
+.actions select { width: auto; flex: 1; min-width: 0; }
+.form { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; margin-bottom: 1.5rem; }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: .75rem; margin-bottom: .9rem; }
+.fields label { display: flex; flex-direction: column; gap: .25rem; font-size: .85rem; color: var(--muted); }
+.fields .wide { grid-column: 1 / -1; }
+.fields .check { flex-direction: row; align-items: center; gap: .5rem; color: var(--text); }
+.status { min-height: 1.3em; margin: .6rem 0 0; font-size: .9rem; }
+.status.ok { color: var(--ok); }
+.status.error { color: var(--danger); }

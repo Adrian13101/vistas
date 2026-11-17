@@ -1,0 +1,20 @@
+{
+  "name": "turnos-reservas",
+  "version": "1.0.0",
+  "description": "Backend de turnos y reservas: servicios, reservas y mensajes con Express y persistencia en MongoDB Atlas con Mongoose, organizado en capas (routes, controllers, services, repositories y DAO)",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "seed": "node src/scripts/seed.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^18.0.8",
+    "express": "^4.19.2",
+    "express-handlebars": "^8.0.7",
+    "mongoose": "^8.24.10",
+    "socket.io": "^4.8.4"
+  }
+}

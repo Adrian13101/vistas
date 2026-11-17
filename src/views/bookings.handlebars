@@ -1,0 +1,24 @@
+<h1>Reservas</h1>
+<p class="muted">La lista se actualiza sola cuando se crea una reserva o se le agrega un servicio (desde esta página o desde la API).</p>
+
+<form id="booking-form" class="form">
+  <h2>Nueva reserva</h2>
+  <div class="fields">
+    <label>Nombre <input name="customerName" required></label>
+    <label>Email <input name="customerEmail" type="email" required></label>
+    <label>Fecha <input name="date" type="date" required></label>
+    <label>Hora <input name="time" type="time" required></label>
+  </div>
+  <button type="submit">Crear reserva</button>
+  <p id="status" class="status" role="status"></p>
+</form>
+
+<section id="bookings-list" class="grid">
+  {{#each bookings}}
+    {{> bookingCard this options=@root.availableServices}}
+  {{else}}
+    <p class="empty">Todavía no hay reservas.</p>
+  {{/each}}
+</section>
+
+<script defer src="/js/bookings.js"></script>

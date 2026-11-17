@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}} · Turnos y Reservas</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <!-- defer: se ejecutan en orden y después de armar el HTML (primero Socket.io y dom.js, luego el script de cada página) -->
+  <script defer src="/socket.io/socket.io.js"></script>
+  <script defer src="/js/dom.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">Turnos y Reservas</a>
+    <nav>
+      <a href="/">Servicios</a>
+      <a href="/bookings">Reservas</a>
+      <a href="/realtimeservices">Gestionar servicios</a>
+    </nav>
+    <span id="connection" class="connection" title="Estado de la conexión en tiempo real">Conectando…</span>
+  </header>
+
+  <main>
+    {{{body}}}
+  </main>
+</body>
+</html>

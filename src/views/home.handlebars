@@ -1,0 +1,12 @@
+<h1>Servicios disponibles</h1>
+<p class="muted">Esta lista se actualiza sola cuando se crea, modifica o elimina un servicio.</p>
+
+<section id="services-list" class="grid">
+  {{#each services}}
+    {{> serviceCard this}}
+  {{else}}
+    <p class="empty">No hay servicios disponibles por ahora.</p>
+  {{/each}}
+</section>
+
+<script defer src="/js/home.js"></script>

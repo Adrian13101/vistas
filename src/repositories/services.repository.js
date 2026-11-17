@@ -1,0 +1,27 @@
+// Repository: capa intermedia entre la lógica de negocio y la persistencia.
+// El service solo conoce esta interfaz; no sabe si abajo hay un JSON o MongoDB.
+export default class ServicesRepository {
+  constructor(dao) {
+    this.dao = dao;
+  }
+
+  getAll(filters = {}) {
+    return this.dao.getAll(filters);
+  }
+
+  getById(id) {
+    return this.dao.getById(id);
+  }
+
+  create(data) {
+    return this.dao.create(data);
+  }
+
+  update(id, data) {
+    return this.dao.update(id, data);
+  }
+
+  delete(id) {
+    return this.dao.delete(id);
+  }
+}

@@ -1,0 +1,19 @@
+<article class="card" data-id="{{id}}" data-available="{{available}}">
+  <header>
+    <h3>{{name}}</h3>
+    {{#if available}}
+      <span class="badge ok">Disponible</span>
+    {{else}}
+      <span class="badge off">No disponible</span>
+    {{/if}}
+  </header>
+  <p class="category">{{category}}</p>
+  <p>{{description}}</p>
+  <p class="meta">{{duration}} min · {{formatPrice price}}</p>
+  {{#if showActions}}
+    <div class="actions">
+      <button type="button" data-action="toggle">{{#if available}}Marcar como no disponible{{else}}Marcar como disponible{{/if}}</button>
+      <button type="button" class="danger" data-action="delete">Eliminar</button>
+    </div>
+  {{/if}}
+</article>

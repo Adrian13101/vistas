@@ -1,0 +1,26 @@
+<h1>Gestión de servicios en tiempo real</h1>
+<p class="muted">Los cambios se envían por Socket.io y se ven al instante en todos los navegadores conectados.</p>
+
+<form id="service-form" class="form">
+  <h2>Nuevo servicio</h2>
+  <div class="fields">
+    <label>Nombre <input name="name" required></label>
+    <label>Categoría <input name="category" required></label>
+    <label>Duración (min) <input name="duration" type="number" min="1" step="1" required></label>
+    <label>Precio <input name="price" type="number" min="0" step="any" required></label>
+    <label class="wide">Descripción <input name="description" required></label>
+    <label class="check"><input name="available" type="checkbox" checked> Disponible</label>
+  </div>
+  <button type="submit">Crear servicio</button>
+  <p id="status" class="status" role="status"></p>
+</form>
+
+<section id="services-list" class="grid">
+  {{#each services}}
+    {{> serviceCard this showActions=true}}
+  {{else}}
+    <p class="empty">Todavía no hay servicios.</p>
+  {{/each}}
+</section>
+
+<script defer src="/js/realtimeservices.js"></script>

@@ -1,0 +1,24 @@
+<article class="card booking" data-id="{{id}}">
+  <header>
+    <h3>{{customerName}}</h3>
+    <span class="badge">{{date}} · {{time}}</span>
+  </header>
+  <p class="category">{{customerEmail}}</p>
+  <ul class="chips">
+    {{#each serviceItems}}
+      <li class="{{#if missing}}missing{{/if}}">{{name}}</li>
+    {{else}}
+      <li class="empty">Sin servicios</li>
+    {{/each}}
+  </ul>
+  {{#if options.length}}
+    <div class="actions">
+      <select aria-label="Servicio a agregar">
+        {{#each options}}
+          <option value="{{id}}">{{name}}</option>
+        {{/each}}
+      </select>
+      <button type="button" data-action="add-service">Agregar servicio</button>
+    </div>
+  {{/if}}
+</article>
